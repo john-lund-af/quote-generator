@@ -1,5 +1,5 @@
 
-export default interface Quote {
+export default interface IQuote {
   id: number,
   quote: string,
   author: string
