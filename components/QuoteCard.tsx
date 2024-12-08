@@ -6,7 +6,7 @@ import { faCopy } from '@fortawesome/free-solid-svg-icons';
 
 const QuoteCard = ({ quote }: { quote: string }) => {
 
-  const copyToClipboard = () => {
+  const copyToClipboard = (): void => {
     navigator.clipboard.writeText(quote);
     alert("Quote copied to clipboard!");
   };
