@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import FontAwesomeConfig from "./fontawesome";
 
 export const metadata: Metadata = {
   title: "Quote Generator",
@@ -13,6 +14,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <FontAwesomeConfig />
+      </head>
       <body
         className="antialiased h-screen bg-gradient-to-br from-blue-900 to-blue-400"
       >

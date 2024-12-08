@@ -1,6 +1,8 @@
 "use client";
 
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCopy } from '@fortawesome/free-solid-svg-icons';
 
 const QuoteCard = ({ quote }: { quote: string }) => {
 
@@ -26,7 +28,7 @@ const QuoteCard = ({ quote }: { quote: string }) => {
 
       {/* Footer */}
       <div className="bg-blue-950 p-4">
-        <button onClick={copyToClipboard}>Copy</button>
+        <button onClick={copyToClipboard}><FontAwesomeIcon icon={faCopy} /></button>
       </div>
     </div>
   );
