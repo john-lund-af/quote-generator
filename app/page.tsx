@@ -1,14 +1,16 @@
-import Header from "@/components/Header";
+'use client'
+
 import QuoteCard from '../components/QuoteCard';
+import QuoteContext from '@/context/QuoteContext';
+import { useContext } from 'react';
 
 export default function Home() {
+  const { isLoading } = useContext(QuoteContext);
+
   return (
-    <div className="container text-white">
-      <Header></Header>
-      <main className="">
-        <h1>Home Page</h1>
-        <QuoteCard quote="This is the legend of Cassius Clay" />
-      </main>
-    </div>
+    <main className="flex items-center justify-center h-screen">
+      {isLoading ? <h1 className="text-4xl">Loading...</h1>
+        : <QuoteCard />}
+    </main>
   );
 }
