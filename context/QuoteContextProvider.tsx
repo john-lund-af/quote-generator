@@ -14,14 +14,14 @@ type QuoteData = {
 };
 
 const QuoteContextProvider = ({ children }: QuoteContextProviderProps) => {
-  const [quotes, setQuotes] = useState<IQuote[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [allQuotes, setAllQuotes] = useState<IQuote[]>([]);
+  const [randomQuote, setRandomQuote] = useState<IQuote>();
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
-  const getRandomQuote = (): IQuote | null => {
-    if (!quotes || quotes.length === 0)
-      return null;
-    const randomNumber = Math.floor(Math.random() * quotes.length);
-    return quotes[randomNumber];
+  const updateRandomQuote = () => {
+    const randomIndex = Math.floor(Math.random() * allQuotes.length);
+    const quote = allQuotes[randomIndex];
+    setRandomQuote(quote);
   }
 
   useEffect(() => {
@@ -29,7 +29,7 @@ const QuoteContextProvider = ({ children }: QuoteContextProviderProps) => {
       try {
         setIsLoading(true);
         const response = await axios.get<QuoteData>('https://dummyjson.com/quotes');
-        setQuotes(response.data.quotes);
+        setAllQuotes(response.data.quotes);
       } catch (err) {
         if (axios.isAxiosError(err)) {
           console.log("Axios error:", err.message);
@@ -45,7 +45,10 @@ const QuoteContextProvider = ({ children }: QuoteContextProviderProps) => {
     fetchQuotes();
   }, []);
 
-  return <QuoteContext.Provider value={{ getRandomQuote, isLoading }}>{children}</QuoteContext.Provider>
+  if (!randomQuote && allQuotes && allQuotes.length > 0)
+    updateRandomQuote();
+
+  return <QuoteContext.Provider value={{ allQuotes, isLoading, randomQuote, updateRandomQuote }}>{children}</QuoteContext.Provider>
 }
 
 export default QuoteContextProvider;

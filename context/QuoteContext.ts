@@ -2,7 +2,9 @@ import React from 'react';
 import IQuote from '@/types/IQuote';
 
 type QuoteContextType = {
-  getRandomQuote: () => IQuote | null,
+  randomQuote?: IQuote,
+  updateRandomQuote: () => void;
+  allQuotes: IQuote[],
   isLoading: boolean,
 }
 
