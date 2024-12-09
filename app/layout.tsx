@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import FontAwesomeConfig from "./fontawesome";
 import QuoteContextProvider from '../context/QuoteContextProvider';
+import Header from "@/components/Header";
 
 export const metadata: Metadata = {
   title: "Quote Generator",
@@ -19,8 +20,9 @@ export default function RootLayout({
         <FontAwesomeConfig />
       </head>
       <body
-        className="antialiased h-screen bg-gradient-to-br from-blue-900 to-blue-400"
+        className="antialiased h-screen md:container md:mx-auto text-white bg-gradient-to-br from-blue-900 to-blue-400"
       >
+        <Header></Header>
         <QuoteContextProvider>{children}</QuoteContextProvider>
       </body>
     </html>
