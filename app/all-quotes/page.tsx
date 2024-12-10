@@ -12,6 +12,6 @@ export default function AllQuotesPage() {
   const filteredQuotes = selectedAuthors.length === 0 ? [...allQuotes] : allQuotes.filter(quote => selectedAuthors.includes(quote.author));
 
   return <main className="px-2">
-    <QuoteList quotes={filteredQuotes} />
+    <QuoteList quotes={filteredQuotes.toSorted((a, b) => a.author.localeCompare(b.author))} />
   </main>
 }
