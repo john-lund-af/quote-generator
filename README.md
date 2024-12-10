@@ -1,36 +1,130 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Quote Generator
 
-## Getting Started
+Quote Generator is a ReactJS application that displays quotes in a user-friendly interface. The app has two main functionalities: a homepage that features a "Quote of the Day" and an "All Quotes" page for browsing and filtering quotes from a list of authors.
 
-First, run the development server:
+## Features
 
+### Homepage
+- **Quote of the Day**: Displays a randomly fetched quote in a styled card.
+- **New Random Quote**: A button to fetch and display a new random quote.
+- **Copy to Clipboard**: A button to copy the current quote to the clipboard for easy sharing.
+
+### All Quotes Page
+- **All Quotes Display**: Lists all quotes fetched from the [dummyjson.com](https://dummyjson.com/) API.
+- **Filter by Author**: Allows users to filter the displayed quotes by the authors.
+
+---
+
+## Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/john-lund-af/quote-generator.git
+   cd quote-generator
+   ```
+
+2. Install dependencies:
+   ```bash
+   pnpm install
+   ```
+
+---
+
+## Usage
+
+### Development Server
+To run the development server:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
 pnpm dev
-# or
-bun dev
+```
+Open your browser and navigate to `http://localhost:3000`.
+
+### Build for Production
+To create an optimized production build:
+```bash
+pnpm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Start Production Server
+After building the application, you can start the production server:
+```bash
+pnpm run start
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Linting
+To run the ESLint checks:
+```bash
+pnpm run lint
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Testing
+Run all Jest tests:
+```bash
+pnpm test
+```
+Run tests in watch mode:
+```bash
+pnpm run test:watch
+```
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## Dependencies
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The project uses the following dependencies:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **React**: A library for building user interfaces.
+- **Next.js**: A React framework for server-side rendering and static site generation.
+- **Axios**: For making HTTP requests to fetch quotes.
+- **Font Awesome**: For adding scalable vector icons.
+- **TailwindCSS**: For styling the application.
 
-## Deploy on Vercel
+### Development Dependencies
+- **Jest**: A JavaScript testing framework.
+- **React Testing Library**: For testing React components.
+- **TypeScript**: For adding static typing to JavaScript.
+- **ESLint**: For maintaining code quality and consistency.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## API
+
+This application fetches quotes from the [dummyjson.com](https://dummyjson.com/) API. Ensure you have access to the API for the app to work correctly.
+
+---
+
+## Development Notes
+
+- The project is built with **TypeScript**, ensuring type safety and reducing bugs during development.
+- Styling is done using **TailwindCSS**, which enables rapid UI design with utility classes.
+- The app is tested with **Jest** and **React Testing Library**.
+
+---
+
+## Contributing
+
+Contributions are welcome! To contribute:
+1. Fork the repository.
+2. Create a new branch for your feature or bugfix:
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+3. Commit your changes:
+   ```bash
+   git commit -m "Add your descriptive message here"
+   ```
+4. Push your changes and submit a pull request:
+   ```bash
+   git push origin feature/your-feature-name
+   ```
+
+---
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+Enjoy creating and sharing your favorite quotes with the Quote Generator! 🎉
+
