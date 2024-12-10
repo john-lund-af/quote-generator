@@ -1,11 +1,18 @@
 'use client'
 
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import QuoteContext from '@/context/QuoteContext';
 
-export default function PillButton({ author }: { author: string }) {
+type PillButtonProps = {
+  author: string
+}
+
+export default function PillButton({ author }: PillButtonProps) {
   const [isChosen, setIsChosen] = useState<boolean>(false);
+  const { alterSelectedAuthors } = useContext(QuoteContext);
 
   const toggleChosen = (): void => {
+    alterSelectedAuthors(author);
     setIsChosen(!isChosen);
   }
 
