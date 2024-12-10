@@ -6,6 +6,8 @@ type QuoteContextType = {
   updateRandomQuote: () => void;
   allQuotes: IQuote[],
   isLoading: boolean,
+  selectedAuthors: string[],
+  alterSelectedAuthors: (author: string) => void
 }
 
 const QuoteContext = React.createContext({} as QuoteContextType);
