@@ -13,7 +13,7 @@ export default function PillButtonList() {
   const authors = Array.from(new Set<string>(allQuotes.map(quote => quote.author)));
   const ascAuthors = authors.toSorted();
 
-  return <ul className="flex gap-4 flex-wrap">
+  return <ul className="flex gap-4 flex-wrap justify-center">
     {ascAuthors.map(author => <li key={author}><PillButton author={author} /></li>)}
   </ul>
 }

@@ -15,7 +15,7 @@ const QuoteCard = () => {
   };
 
   return (
-    <div className="max-w-sm mx-auto border border-gray-700 rounded-lg shadow-lg overflow-hidden">
+    <div className="w-[365px] md:max-w-md mx-auto border border-gray-700 rounded-lg shadow-lg overflow-hidden">
 
       <div className="bg-blue-950 text-white text-lg font-bold p-4 text-center">
         Quote of the Day
