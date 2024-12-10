@@ -20,10 +20,10 @@ export default function RootLayout({
         <FontAwesomeConfig />
       </head>
       <body
-        className="antialiased h-screen md:container md:mx-auto text-white bg-gradient-to-br from-blue-900 to-blue-400"
+        className="antialiased h-screen md:container md:mx-auto text-white bg-gradient-to-r from-blue-900 to-blue-400"
       >
         <Header></Header>
-        <QuoteContextProvider><div className="h-screen pt-28">{children}</div></QuoteContextProvider>
+        <QuoteContextProvider><div className="h-screen">{children}</div></QuoteContextProvider>
       </body>
     </html>
   );
