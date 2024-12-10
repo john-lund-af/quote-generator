@@ -5,11 +5,13 @@ import QuoteContext from '@/context/QuoteContext';
 import QuoteList from '@/components/QuoteList';
 
 export default function AllQuotesPage() {
-  const { allQuotes, isLoading } = useContext(QuoteContext);
+  const { allQuotes, isLoading, selectedAuthors } = useContext(QuoteContext);
   if (isLoading)
     return <h1 className="text-4xl">Loading...</h1>
 
+  const filteredQuotes = selectedAuthors.length === 0 ? [...allQuotes] : allQuotes.filter(quote => selectedAuthors.includes(quote.author));
+
   return <main className="px-2">
-    <QuoteList quotes={allQuotes} />
+    <QuoteList quotes={filteredQuotes} />
   </main>
 }
