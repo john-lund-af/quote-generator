@@ -23,7 +23,7 @@ export default function RootLayout({
         className="antialiased h-screen md:container md:mx-auto text-white bg-gradient-to-br from-blue-900 to-blue-400"
       >
         <Header></Header>
-        <QuoteContextProvider>{children}</QuoteContextProvider>
+        <QuoteContextProvider><div className="h-screen pt-28">{children}</div></QuoteContextProvider>
       </body>
     </html>
   );
