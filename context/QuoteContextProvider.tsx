@@ -17,6 +17,7 @@ const QuoteContextProvider = ({ children }: QuoteContextProviderProps) => {
   const [allQuotes, setAllQuotes] = useState<IQuote[]>([]);
   const [randomQuote, setRandomQuote] = useState<IQuote>();
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [selectedAuthors, setSelectedAuthors] = useState<string[]>([]);
 
   const updateRandomQuote = () => {
     const randomIndex = Math.floor(Math.random() * allQuotes.length);
@@ -45,10 +46,18 @@ const QuoteContextProvider = ({ children }: QuoteContextProviderProps) => {
     fetchQuotes();
   }, []);
 
+  const alterSelectedAuthors = (author: string): void => {
+    const foundActor = selectedAuthors.find(a => a === author);
+    if (foundActor)
+      setSelectedAuthors(selectedAuthors.filter(a => a !== author));
+    else
+      setSelectedAuthors([...selectedAuthors, author]);
+  }
+
   if (!randomQuote && allQuotes && allQuotes.length > 0)
     updateRandomQuote();
 
-  return <QuoteContext.Provider value={{ allQuotes, isLoading, randomQuote, updateRandomQuote }}>{children}</QuoteContext.Provider>
+  return <QuoteContext.Provider value={{ allQuotes, isLoading, randomQuote, updateRandomQuote, selectedAuthors, alterSelectedAuthors }}>{children}</QuoteContext.Provider>
 }
 
 export default QuoteContextProvider;
