@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useContext } from 'react';
+import { useContext } from 'react';
 import QuoteContext from '@/context/QuoteContext';
 
 type PillButtonProps = {
@@ -8,16 +8,9 @@ type PillButtonProps = {
 }
 
 export default function PillButton({ author }: PillButtonProps) {
-  const [isChosen, setIsChosen] = useState<boolean>(false);
-  const { alterSelectedAuthors } = useContext(QuoteContext);
+  const { alterSelectedAuthors, selectedAuthors } = useContext(QuoteContext);
 
-  const toggleChosen = (): void => {
-    alterSelectedAuthors(author);
-    setIsChosen(!isChosen);
-  }
+  const cssClasses = selectedAuthors.find(a => a === author) ? 'bg-blue-500 text-white' : 'bg-white text-gray-900';
 
-  const selectedClasses = 'bg-blue-500 text-white';
-  const notSelectedClasses = 'bg-white text-gray-900';
-
-  return <button onClick={toggleChosen} className={`${isChosen ? selectedClasses : notSelectedClasses} py-2 px-3 text-sm cursor-pointer font-semibold text-center shadow-xs`}>{author}</button>
+  return <button onClick={() => alterSelectedAuthors(author)} className={`${cssClasses} py-2 px-3 text-sm cursor-pointer font-semibold text-center shadow-xs`}>{author}</button>
 }
